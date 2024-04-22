@@ -1,5 +1,5 @@
-<!-- I think that we have a visual structure of 5 rows 
-(can have another row at the top showing days of the week) and 7 columns-->
+<!-- Made a visual structure of 5 rows 
+(with a header row at the top of dates) and 7 columns-->
 
 <!-- Made with copilot, gonna work on it. Take it with a grain of salt. -->
 <table>
@@ -74,6 +74,18 @@
     </tbody>
 </table>
 <!-- Then we make a function that reads the JSON file and then starts putting in the numbers
-depending on what day of the week the first day of the month is, we can also hyperlink them.
-Also we have a message that pops up if they disable JS, it should say something like
-"Turn Javascript back on Little bro"-->
+depending on what day of the week the first day of the month is and how many days there are in that month, we can also hyperlink them.
+Also, made a message that (should?) pop up if they disable JS,
+it says "Turn Javascript back on Little bro"-->
+
+<!-- TODO: Figure out if the js stuff works (and check the js file)-->
+<script src="js/script.js">
+    // Check if JavaScript is enabled
+if (typeof populateCalendar === 'function') {
+    // JavaScript is enabled, populate the calendar
+    populateCalendar();
+} else {
+    // JavaScript is disabled, show a message
+    alert('Turn JavaScript back on Little bro');
+}
+</script>
