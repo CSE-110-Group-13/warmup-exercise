@@ -1,0 +1,44 @@
+{
+	"journal": [
+		{
+			"date": "2024-04-21",
+			"tasks": [
+				{
+					"task_id": 1,
+					"description": "Write report for meeting",
+					"status": "incomplete"
+				},
+				{
+					"task_id": 2,
+					"description": "Call John Doe regarding project update",
+					"status": "complete"
+				},
+				{
+					"task_id": 3,
+					"description": "Prepare presentation slides",
+					"status": "incomplete"
+				}
+			]
+		},
+		{
+			"date": "2024-04-20",
+			"tasks": [
+				{
+					"task_id": 1,
+					"description": "Attend project meeting",
+					"status": "complete"
+				},
+				{
+					"task_id": 2,
+					"description": "Review project timeline",
+					"status": "complete"
+				},
+				{
+					"task_id": 3,
+					"description": "Update task list",
+					"status": "complete"
+				}
+			]
+		}
+	]
+}
