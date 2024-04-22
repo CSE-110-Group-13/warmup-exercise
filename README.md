@@ -9,6 +9,7 @@
 - Sarah
 - Hoang
 - Uliyaah
+- Jacqueline
 
 ### Task 3:
 
