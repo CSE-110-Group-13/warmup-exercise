@@ -2,6 +2,9 @@
 (with a header row at the top of dates) and 7 columns-->
 
 <!-- Made with copilot, gonna work on it. Take it with a grain of salt. -->
+<!DOCTYPE html>
+<html>
+<body>
 <table>
     <!-- Table header with days of the week -->
     <thead>
@@ -79,13 +82,15 @@ Also, made a message that (should?) pop up if they disable JS,
 it says "Turn Javascript back on Little bro"-->
 
 <!-- TODO: Figure out if the js stuff works (and check the js file)-->
-<script src="js/script.js">
-    // Check if JavaScript is enabled
-if (typeof populateCalendar === 'function') {
+<noscript>
+    JavaScript is not enabled in your browser. Please enable it for better user experience.
+</noscript>
+
+<script src="script.js"></script>
+<script>
     // JavaScript is enabled, populate the calendar
     populateCalendar();
-} else {
-    // JavaScript is disabled, show a message
-    alert('Turn JavaScript back on Little bro');
-}
 </script>
+</body>
+
+</html>

@@ -1,41 +1,41 @@
 // Function to populate the calendar with dates
 function populateCalendar() {
     // Read the JSON file and get the necessary data
-    var jsonData = JSON.parse(data.JSON);
+    fetch('data.JSON')
+        .then(response => response.json())
+        .then(jsonData => {
 
-    // Get the table body element
-    var tableBody = document.querySelector('tbody');
+            // Get the table body element
+            var tableBody = document.querySelector('tbody');
 
-    // Clear the table body
-    tableBody.innerHTML = '';
+            // Clear the table body
+            tableBody.innerHTML = '';
 
-    // TODO: Check this and add functionalty for hyperlinks
-    // Loop through the rows and use the JSON data to start putting numbers once
-    // the start day is reached and until all the days in that month are added
-    for (var i = 0; i < 5; i++) {
-        // Create a new row
-        var row = document.createElement('tr');
-        // Counter to figure out when to start the date
-        var startCounter = 0;
-        var dayCounter = 1;
-        // Loop through the columns
-        for (var j = 0; j < 7; j++) {
-            if (startCounter >= jsonData.start) {
-                if (dayCounter >= jsonData.length) {
-                    break;
+            // Loop through the rows and use the JSON data to start putting numbers once
+            // the start day is reached and until all the days in that month are added
+            for (var i = 0, dayCounter = 1; i < 6; i++) {
+                // Create a new row
+                var row = document.createElement('tr');
+                // Counter to figure out when to start the date
+                var startCounter = 0;
+                // Loop through the columns
+                for (var j = 0; j < 7; j++) {
+                    // Create a new cell
+                    var cell = document.createElement('td');
+                    if (startCounter >= jsonData.start && dayCounter <= jsonData.length) {
+                        // Create a new text node with the date
+                        var cellText = document.createTextNode(dayCounter);
+                        // Append the text node to the cell
+                        cell.appendChild(cellText);
+                        dayCounter++;
+                    }
+                    // Append the cell to the row
+                    row.appendChild(cell);
+                    startCounter++;
                 }
-                // Create a new cell
-                var cell = document.createElement('td');
-                // Create a new text node with the date
-                var cellText = document.createTextNode(dayCounter + 1);
-                // Append the text node to the cell
-                cell.appendChild(cellText);
-                dayCounter++;
+                // Append the row to the table body
+                tableBody.appendChild(row);
             }
-            startCounter++;
-        }
-        // Append the row to the table body
-        tableBody.appendChild(row);
-    }
+        }).catch(error => console.error('Error:', error));
 }
 
