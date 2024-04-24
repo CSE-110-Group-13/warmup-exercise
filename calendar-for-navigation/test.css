@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#calendar-container {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 50vh;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#weekdays-container {
+    border-bottom: 2px solid black;
+}
+
+#weekdays-container ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#grid7x6 {
+    flex-grow: 1;
+    overflow: auto;
+}
+
+/* Can change these to a class */
+#January, #February, #March, #April, #May, #June, #July, #August, #September, #October, #November, #December {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#January li, #February li, #March li, #April li, #May li, #June li, #July li, #August li, #September li, #October li, #November li, #December li {
+    width: 14.28%;
+    height: 16.67%;
+    text-align: center;
+    box-shadow: 0 0 0 1px #000000;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+/* Hides each list so that if a month is not "active" then it's not physically there */
+.hidden {
+    display: none !important;
+}
+
+ul.hidden li {
+    display: none !important;
+}

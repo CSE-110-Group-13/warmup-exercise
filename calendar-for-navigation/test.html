@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Widget</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+    <body>
+
+        <div id="calendar-container">
+            
+            <div id="calendar-header">
+                <select name="current-month" id="current-month">
+                    <option value="select">Select a Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                <h1 id="current-year">2024</h1>
+                <button type="button">Prev</button>
+                <button type="button">Next</button>
+            </div>
+
+            <div id="weekdays-container">
+                <ul>
+                    <li>Sunday</li>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                </ul>
+            </div>
+
+            <!-- Each list is it's own calendar grid, hidden class to act as active/inactive months -->
+            <div id="grid7x6">
+                <ul id="January" class="hidden"></ul>
+                <ul id="February" class="hidden"></ul>
+                <ul id="March" class="hidden"></ul>
+                <ul id="April" class="hidden"></ul>
+                <ul id="May" class="hidden"></ul>
+                <ul id="June" class="hidden"></ul>
+                <ul id="July" class="hidden"></ul>
+                <ul id="August" class="hidden"></ul>
+                <ul id="September" class="hidden"></ul>
+                <ul id="October" class="hidden"></ul>
+                <ul id="November" class="hidden"></ul>
+                <ul id="December" class="hidden"></ul>
+            </div>
+
+        </div>
+
+        <div id="calendarEvents"></div>
+        <br>
+        <input type="text" id="inputText">
+
+        <script src="./test.js"></script>
+    </body>
+</html>
