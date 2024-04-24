@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Widget</title>
+    <link rel="stylesheet" href="./test.css">
+</head>
+    <body>
+        <button type="button" id="load">Load Calendar</button>
+
+        <div id="calendar-container">
+            
+            <div id="calendar-header">
+                <!-- <h1 id="current-month">January</h1> -->
+                <select name="current-month" id="current-month">
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
+                <h1 id="current-year">2024</h1>
+                <button type="button">Prev</button>
+                <button type="button">Next</button>
+            </div>
+
+            <div id="weekdays-container">
+                <ul>
+                    <li>Sunday</li>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                </ul>
+            </div>
+
+            <div id="grid7x6">
+                <ul id="gridCalendar">
+
+                </ul>
+            </div>
+
+        </div>
+
+        <script src="./test.js"></script>
+    </body>
+</html>

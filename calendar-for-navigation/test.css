@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#calendar-container {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 50vh;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#weekdays-container ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#grid7x6 {
+    flex-grow: 1;
+}
+
+#gridCalendar {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#gridCalendar li {
+    width: 14.28%;
+    height: 16.67%;
+    text-align: center;
+}
