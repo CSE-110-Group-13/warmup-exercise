@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="./test.css">
 </head>
     <body>
-        <button type="button" id="load">Load Calendar</button>
 
         <div id="calendar-container">
             
             <div id="calendar-header">
                 <!-- <h1 id="current-month">January</h1> -->
                 <select name="current-month" id="current-month">
+                    <option value="select">Select a Month</option>
                     <option value="January">January</option>
                     <option value="February">February</option>
                     <option value="March">March</option>
@@ -45,9 +45,18 @@
             </div>
 
             <div id="grid7x6">
-                <ul id="gridCalendar">
-
-                </ul>
+                <ul id="January" class="hidden"></ul>
+                <ul id="February" class="hidden"></ul>
+                <ul id="March" class="hidden"></ul>
+                <ul id="April" class="hidden"></ul>
+                <ul id="May" class="hidden"></ul>
+                <ul id="June" class="hidden"></ul>
+                <ul id="July" class="hidden"></ul>
+                <ul id="August" class="hidden"></ul>
+                <ul id="September" class="hidden"></ul>
+                <ul id="October" class="hidden"></ul>
+                <ul id="November" class="hidden"></ul>
+                <ul id="December" class="hidden"></ul>
             </div>
 
         </div>

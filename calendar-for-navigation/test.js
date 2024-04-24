@@ -1,30 +1,76 @@
 // Fill grid with divs
-const loadCalendar = document.getElementById('load');
-const gridList = document.getElementById('gridCalendar');
 const monthSelector = document.getElementById('current-month');
-let loaded = false;
 let currentMonth = "January";
+let firstDay = -1;
 
-function addGridListElements() {
-    for (let i = 0; i < 42; i++) {
-        let listItem = document.createElement('li');
-        listItem.textContent = "day";
-        gridList.appendChild(listItem);
+let alreadyGenerated = {
+    "January": false,
+    "February": false,
+    "March": false,
+    "April": false,
+    "May": false,
+    "June": false,
+    "July": false,
+    "August": false,
+    "September": false,
+    "October": false,
+    "November": false,
+    "December": false
+}
+
+const monthsDays = {
+    "January": 31,
+    "February": 28,
+    "March": 31,
+    "April": 30,
+    "May": 31,
+    "June": 30,
+    "July": 31,
+    "August": 31,
+    "September": 30,
+    "October": 31,
+    "November": 30,
+    "December": 31
+}
+
+function addGridListElements(currentMonth, firstDay) {
+    const monthGrid = document.getElementById(currentMonth);
+    console.log(monthGrid);
+    if (alreadyGenerated[currentMonth] === false) {
+        alreadyGenerated[currentMonth] = true;
+
+        let numberOfDays = monthsDays[currentMonth]
+        if (year % 4 === 0 && currentMonth === "February") {
+            numberOfDays = numberOfDays + 1;
+        }
+
+        let counter = 0;
+        for (let i = 0; i < 42; i++) {
+            
+            if (i >= (firstDay - 1) && counter < numberOfDays) {
+                counter++;
+                let listItem = document.createElement('li');
+                listItem.textContent = "day" + counter;
+                monthGrid.appendChild(listItem);
+            } else {
+                let listItem = document.createElement('li');
+                listItem.textContent = "";
+                monthGrid.appendChild(listItem);
+            }
+        }
     }
 }
 
-// Load the calendar
-loadCalendar.addEventListener('click', () => {
-    if (loaded === false) {
-        addGridListElements();
-        loaded = true;
-    }
-});
-
 // Change the month
 monthSelector.addEventListener('change', (event) => {
+    document.getElementById(currentMonth).classList.add('hidden');
+
     currentMonth = event.target.value;
-    calculateFirstDay();
+
+    document.getElementById(currentMonth).classList.remove('hidden');
+
+    firstDay = calculateFirstDay();
+    addGridListElements(currentMonth, firstDay);
 })
 
 // Calculate the day of the week the first day lands on
@@ -63,6 +109,16 @@ function calculateFirstDay() {
     gregorianDate = gregorianDate + lastTwoDigits;
     // Divide by 7 and take the remainder.
     gregorianDate = gregorianDate % 7;
-
+    console.log(gregorianDate);
     return gregorianDate;
 }
+
+// const loadCalendar = document.getElementById('load');
+// let loaded = false;
+// Load the calendar
+// loadCalendar.addEventListener('click', () => {
+//     if (loaded === false) {
+//         addGridListElements();
+//         loaded = true;
+//     }
+// });
