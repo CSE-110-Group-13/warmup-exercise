@@ -1,8 +1,13 @@
-// Fill grid with divs
 const monthSelector = document.getElementById('current-month');
+const calendarEvents = document.getElementById('calendarEvents');
+const inputText = document.getElementById('inputText');
+
+// Variables that are updated by eventListeners and functions
 let currentMonth = "January";
 let firstDay = -1;
+let currentListItem = "";
 
+// Dictionary to prevent creation of <li> elements more than once
 let alreadyGenerated = {
     "January": false,
     "February": false,
@@ -18,6 +23,7 @@ let alreadyGenerated = {
     "December": false
 }
 
+// Days of the months
 const monthsDays = {
     "January": 31,
     "February": 28,
@@ -33,32 +39,45 @@ const monthsDays = {
     "December": 31
 }
 
+// Appends <li> elements to the <ul> elements in grid7x6
 function addGridListElements(currentMonth, firstDay) {
-    const monthGrid = document.getElementById(currentMonth);
-    console.log(monthGrid);
+    // Only does this once for each month
     if (alreadyGenerated[currentMonth] === false) {
+        // Get the selected month <ul> tag
+        const monthGrid = document.getElementById(currentMonth);
         alreadyGenerated[currentMonth] = true;
 
+        // Check if leap year for February
         let numberOfDays = monthsDays[currentMonth]
         if (year % 4 === 0 && currentMonth === "February") {
             numberOfDays = numberOfDays + 1;
         }
 
+        // Counter to start the days on the right day of the week up to number of days in the month
         let counter = 0;
+        // Creates 42 list elements, some empty, some for the days
         for (let i = 0; i < 42; i++) {
-            
+            // firstDay - 1 because the formulas used to calculate the first day of the week is 1-Sunday 2-Monday
             if (i >= (firstDay - 1) && counter < numberOfDays) {
                 counter++;
+                // Creates an <li> which has a <p> nested
+                // <p> contains the calendar contents, <li> contains the day number
                 let listItem = document.createElement('li');
-                let detailItem = document.createElement('details');
-                let summaryItem = document.createElement('summary');
-                listItem.textContent = counter;
+                let paragraphItem = document.createElement('p');
+                // calendarEvents is the text below the calendar
+                // currentListItem is to keep track which day the user pressed
+                listItem.addEventListener('click', (event) => {
+                    calendarEvents.textContent = listItem.textContent;
+                    inputText.value = paragraphItem.textContent;
+                    currentListItem = listItem;
+                })
+                // <li>24 </li>
+                listItem.textContent = counter + " ";
+                // <li>24 <p>ExampleText</p></li>
+                listItem.appendChild(paragraphItem);
                 monthGrid.appendChild(listItem);
-                detailItem.textContent = "blah blahblah blahblah blahblah blah";
-                summaryItem.textContent = "task";
-                listItem.appendChild(detailItem);
-                detailItem.appendChild(summaryItem);
             } else {
+                // Empty <li> for flexbox purposes
                 let listItem = document.createElement('li');
                 listItem.textContent = "";
                 monthGrid.appendChild(listItem);
@@ -67,12 +86,13 @@ function addGridListElements(currentMonth, firstDay) {
     }
 }
 
-// Change the month
+// Change the month with the selector
 monthSelector.addEventListener('change', (event) => {
+    // Makes the last month you selected hidden
     document.getElementById(currentMonth).classList.add('hidden');
 
+    // Set currentMonth to newly selected month and make it unhidden
     currentMonth = event.target.value;
-
     document.getElementById(currentMonth).classList.remove('hidden');
 
     firstDay = calculateFirstDay();
@@ -80,7 +100,9 @@ monthSelector.addEventListener('change', (event) => {
 })
 
 // Calculate the day of the week the first day lands on
+// Hard coded year, can change to whichever (Implement?)
 const year = 2024; 
+// Dictionary for formula
 monthKeyValue = {
     "January": 1,
     "February": 4,
@@ -115,16 +137,15 @@ function calculateFirstDay() {
     gregorianDate = gregorianDate + lastTwoDigits;
     // Divide by 7 and take the remainder.
     gregorianDate = gregorianDate % 7;
-    console.log(gregorianDate);
     return gregorianDate;
 }
 
-// const loadCalendar = document.getElementById('load');
-// let loaded = false;
-// Load the calendar
-// loadCalendar.addEventListener('click', () => {
-//     if (loaded === false) {
-//         addGridListElements();
-//         loaded = true;
-//     }
-// });
+// Change the <p> in <li> to newly entered events
+inputText.addEventListener('keydown', (event) => {
+    // Prevents accidental enter presses from causing changes
+    if (event.key === "Enter" && document.activeElement === inputText) {
+        let paragraph = currentListItem.querySelector('p');
+        paragraph.textContent = event.target.value;
+        calendarEvents.textContent = currentListItem.textContent;
+    }
+})

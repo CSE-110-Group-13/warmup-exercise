@@ -11,7 +11,6 @@
         <div id="calendar-container">
             
             <div id="calendar-header">
-                <!-- <h1 id="current-month">January</h1> -->
                 <select name="current-month" id="current-month">
                     <option value="select">Select a Month</option>
                     <option value="January">January</option>
@@ -44,6 +43,7 @@
                 </ul>
             </div>
 
+            <!-- Each list is it's own calendar grid, hidden class to act as active/inactive months -->
             <div id="grid7x6">
                 <ul id="January" class="hidden"></ul>
                 <ul id="February" class="hidden"></ul>
@@ -60,6 +60,10 @@
             </div>
 
         </div>
+
+        <div id="calendarEvents"></div>
+        <br>
+        <input type="text" id="inputText">
 
         <script src="./test.js"></script>
     </body>
