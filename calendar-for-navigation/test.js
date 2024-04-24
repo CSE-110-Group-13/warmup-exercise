@@ -50,8 +50,14 @@ function addGridListElements(currentMonth, firstDay) {
             if (i >= (firstDay - 1) && counter < numberOfDays) {
                 counter++;
                 let listItem = document.createElement('li');
-                listItem.textContent = "day" + counter;
+                let detailItem = document.createElement('details');
+                let summaryItem = document.createElement('summary');
+                listItem.textContent = counter;
                 monthGrid.appendChild(listItem);
+                detailItem.textContent = "blah blahblah blahblah blahblah blah";
+                summaryItem.textContent = "task";
+                listItem.appendChild(detailItem);
+                detailItem.appendChild(summaryItem);
             } else {
                 let listItem = document.createElement('li');
                 listItem.textContent = "";
