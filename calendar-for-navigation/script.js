@@ -1,41 +1,56 @@
-// Function to populate the calendar with dates
-function populateCalendar() {
-    // Read the JSON file and get the necessary data
-    fetch('data.JSON')
-        .then(response => response.json())
-        .then(jsonData => {
+//Used Co-Pilot and GPT to expedite the writing code
 
-            // Get the table body element
-            var tableBody = document.querySelector('tbody');
+const prevMonthBtn = document.getElementById('prevMonth');
+const nextMonthBtn = document.getElementById('nextMonth');
+const currentMonthElem = document.getElementById('currentMonth');
+const daysGrid = document.getElementById('daysGrid');
 
-            // Clear the table body
-            tableBody.innerHTML = '';
+let currentDate = new Date();
 
-            // Loop through the rows and use the JSON data to start putting numbers once
-            // the start day is reached and until all the days in that month are added
-            for (var i = 0, dayCounter = 1; i < 6; i++) {
-                // Create a new row
-                var row = document.createElement('tr');
-                // Counter to figure out when to start the date
-                var startCounter = 0;
-                // Loop through the columns
-                for (var j = 0; j < 7; j++) {
-                    // Create a new cell
-                    var cell = document.createElement('td');
-                    if (startCounter >= jsonData.start && dayCounter <= jsonData.length) {
-                        // Create a new text node with the date
-                        var cellText = document.createTextNode(dayCounter);
-                        // Append the text node to the cell
-                        cell.appendChild(cellText);
-                        dayCounter++;
-                    }
-                    // Append the cell to the row
-                    row.appendChild(cell);
-                    startCounter++;
-                }
-                // Append the row to the table body
-                tableBody.appendChild(row);
-            }
-        }).catch(error => console.error('Error:', error));
+function renderCalendar() {
+  const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+  const firstDayOfWeek = firstDayOfMonth.getDay();
+  
+  currentMonthElem.textContent = `${firstDayOfMonth.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+
+  daysGrid.innerHTML = '';
+
+  //create cells
+  for (let i = 0; i < firstDayOfWeek; i++) {
+    const emptyCell = document.createElement('div');
+    emptyCell.classList.add('day', 'empty');
+    daysGrid.appendChild(emptyCell);
+  }
+
+  //fill cells
+  for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+    const dayElem = document.createElement('div');
+    dayElem.textContent = i;
+    dayElem.classList.add('day');
+    dayElem.addEventListener('click', () => selectDay(dayElem));
+    dayElem.addEventListener('mouseover', () => dayElem.classList.add('hover'));
+    dayElem.addEventListener('mouseout', () => dayElem.classList.remove('hover'));
+    daysGrid.appendChild(dayElem);
+  }
 }
 
+//highlight day
+function selectDay(selectedDay) {
+  const allDays = document.querySelectorAll('.day');
+  allDays.forEach(day => day.classList.remove('selected'));
+  selectedDay.classList.add('selected');
+}
+
+//buttons
+prevMonthBtn.addEventListener('click', () => {
+  currentDate.setMonth(currentDate.getMonth() - 1);
+  renderCalendar();
+});
+
+nextMonthBtn.addEventListener('click', () => {
+  currentDate.setMonth(currentDate.getMonth() + 1);
+  renderCalendar();
+});
+
+renderCalendar();

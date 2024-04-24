@@ -1,96 +1,20 @@
-<!-- Made a visual structure of 5 rows 
-(with a header row at the top of dates) and 7 columns-->
-
-<!-- Made with copilot, gonna work on it. Take it with a grain of salt. -->
 <!DOCTYPE html>
 <html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<table>
-    <!-- Table header with days of the week -->
-    <thead>
-        <tr>
-            <th>Sun</th>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-        </tr>
-    </thead>
-    <!-- Table body with calendar dates -->
-    <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tbody>
-</table>
-<!-- Then we make a function that reads the JSON file and then starts putting in the numbers
-depending on what day of the week the first day of the month is and how many days there are in that month, we can also hyperlink them.
-Also, made a message that (should?) pop up if they disable JS,
-it says "Turn Javascript back on Little bro"-->
-
-<!-- TODO: Figure out if the js stuff works (and check the js file)-->
-<noscript>
-    JavaScript is not enabled in your browser. Please enable it for better user experience.
-</noscript>
-
-<script src="script.js"></script>
-<script>
-    // JavaScript is enabled, populate the calendar
-    populateCalendar();
-</script>
+  <div class="calendar">
+    <div class="header">
+      <button id="prevMonth">&lt;</button>
+      <h2 id="currentMonth"></h2>
+      <button id="nextMonth">&gt;</button>
+    </div>
+    <div class="days" id="daysGrid"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
-
 </html>
