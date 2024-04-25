@@ -1,6 +1,8 @@
 const monthSelector = document.getElementById('current-month');
 const calendarEvents = document.getElementById('calendarEvents');
 const inputText = document.getElementById('inputText');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
 
 // Variables that are updated by eventListeners and functions
 let currentMonth = "January";
@@ -95,6 +97,46 @@ monthSelector.addEventListener('change', (event) => {
     currentMonth = event.target.value;
     document.getElementById(currentMonth).classList.remove('hidden');
 
+    firstDay = calculateFirstDay();
+    addGridListElements(currentMonth, firstDay);
+})
+
+nextButton.addEventListener('click', () => {
+    // Makes the last month you selected hidden
+    document.getElementById(currentMonth).classList.add('hidden');
+
+    if(currentMonth === "December") {
+        document.getElementById("January").classList.remove('hidden');
+        monthSelector.value = "January";
+        currentMonth = "January";
+    }
+    else {
+        // Set currentMonth to newly selected month and make it unhidden
+        const nextIndex = (monthSelector.selectedIndex + 1) % monthSelector.options.length;
+        currentMonth = monthSelector.options[nextIndex].value;
+        monthSelector.value = currentMonth;
+        document.getElementById(currentMonth).classList.remove('hidden');
+    }
+    firstDay = calculateFirstDay();
+    addGridListElements(currentMonth, firstDay);
+})
+
+prevButton.addEventListener('click', () => {
+    // Makes the last month you selected hidden
+    document.getElementById(currentMonth).classList.add('hidden');
+
+    if(currentMonth === "January") {
+        document.getElementById("December").classList.remove('hidden');
+        monthSelector.value = "December";
+        currentMonth = "December";
+    }
+    else {
+        // Set currentMonth to newly selected month and make it unhidden
+        const prevIndex = (monthSelector.selectedIndex - 1 + monthSelector.options.length) % monthSelector.options.length;
+        currentMonth = monthSelector.options[prevIndex].value;
+        monthSelector.value = currentMonth;
+        document.getElementById(currentMonth).classList.remove('hidden');
+    }
     firstDay = calculateFirstDay();
     addGridListElements(currentMonth, firstDay);
 })
