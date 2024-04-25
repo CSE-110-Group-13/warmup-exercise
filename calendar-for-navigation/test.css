@@ -24,6 +24,7 @@ body {
     justify-content: space-evenly;
     max-height: 15%;
     margin-bottom: 2%;
+    align-items: center;
 }
 
 #current-month {
@@ -47,6 +48,11 @@ body {
     color: #333;
 }
 
+.buttons {
+    display: flex;
+    gap: 0.3em;
+}
+
 button {
     background-color: #333;
     color: white;
@@ -54,6 +60,8 @@ button {
     border-radius: 5px;
     padding: 0.5em 1em;
     cursor: pointer;
+    height: 2.5em;
+    width: 5em;
 }
 
 #weekdays-container {
@@ -98,9 +106,19 @@ button {
     height: 16.67%;
     text-align: center;
     padding-top: 0.5em;
+    box-sizing: border-box;
     box-shadow: 0 0.1px 0 0.1px #333;
     overflow-wrap: break-word;
     overflow: hidden;
+}
+
+p {
+    margin: 0;
+    padding-top: 0.1em;
+    padding-bottom: 0;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    font-size: 0.8em;
 }
 
 #inputText{
@@ -121,4 +139,75 @@ button {
 
 ul.hidden li {
     display: none !important;
+}
+
+/* Text below the calendar */
+#calendarEvents {
+    width: 80%;
+    text-align: center;
+    padding-top: 1em;
+}
+
+/* Mobile phones */
+@media only screen and (max-width: 600px) {
+    #calendar-header {
+        display: flex;
+        justify-content: space-evenly;
+        max-height: 15%;
+        margin-bottom: 2%;
+        align-items: center;
+    }
+
+    #current-month {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6em;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #333;
+    }
+    
+    #current-year {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        font-size: auto;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #333;
+    }
+    
+    .buttons {
+        display: flex;
+        gap: 0.2em;
+    }
+    
+    button {
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        height: 2em;
+        width: 4em;
+    }
+
+    p {
+        margin: 0;
+        padding-top: 0.1em;
+        padding-bottom: 0;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+        font-size: 0.8em;
+    }
+
+    #calendarEvents {
+        width: 80%;
+        text-align: center;
+        padding-top: 1em;
+        font-size: 0.8em;
+    }
 }
