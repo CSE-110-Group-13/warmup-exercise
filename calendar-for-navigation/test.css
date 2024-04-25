@@ -4,31 +4,84 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 #calendar-container {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
-    width: 50vw;
-    height: 50vh;
+    width: 80%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 3%;
 }
 
 #calendar-header {
     display: flex;
     justify-content: space-evenly;
+    max-height: 15%;
+    margin-bottom: 2%;
+    align-items: center;
+}
+
+#current-month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#current-year {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+    font-size: auto;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.buttons {
+    display: flex;
+    gap: 0.3em;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    height: 2.5em;
+    width: 5em;
 }
 
 #weekdays-container {
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
+    padding: 0.5em 0 1em 0;
 }
 
 #weekdays-container ul{
     display: flex;
     justify-content: space-evenly;
     list-style-type: none;
-    margin: 0;
+    margin: 1px;
     padding: 0;
+    color: #333;
+}
+
+#weekdays-container li {
+    width: 14.28%;
+    text-align: center;
+    font-size: 1.2em;
 }
 
 #grid7x6 {
@@ -52,9 +105,31 @@ body {
     width: 14.28%;
     height: 16.67%;
     text-align: center;
-    box-shadow: 0 0 0 1px #000000;
+    padding-top: 0.5em;
+    box-sizing: border-box;
+    box-shadow: 0 0.1px 0 0.1px #333;
     overflow-wrap: break-word;
     overflow: hidden;
+}
+
+p {
+    margin: 0;
+    padding-top: 0.1em;
+    padding-bottom: 0;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    font-size: 0.8em;
+}
+
+#inputText{
+    width: 80%;
+    min-height: 3em;
+    margin: 2%;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0 2.5% 0 2.5%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 
 /* Hides each list so that if a month is not "active" then it's not physically there */
@@ -64,4 +139,75 @@ body {
 
 ul.hidden li {
     display: none !important;
+}
+
+/* Text below the calendar */
+#calendarEvents {
+    width: 80%;
+    text-align: center;
+    padding-top: 1em;
+}
+
+/* Mobile phones */
+@media only screen and (max-width: 600px) {
+    #calendar-header {
+        display: flex;
+        justify-content: space-evenly;
+        max-height: 15%;
+        margin-bottom: 2%;
+        align-items: center;
+    }
+
+    #current-month {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 6em;
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #333;
+    }
+    
+    #current-year {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        font-size: auto;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #333;
+    }
+    
+    .buttons {
+        display: flex;
+        gap: 0.2em;
+    }
+    
+    button {
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        height: 2em;
+        width: 4em;
+    }
+
+    p {
+        margin: 0;
+        padding-top: 0.1em;
+        padding-bottom: 0;
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+        font-size: 0.8em;
+    }
+
+    #calendarEvents {
+        width: 80%;
+        text-align: center;
+        padding-top: 1em;
+        font-size: 0.8em;
+    }
 }
