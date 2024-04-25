@@ -1,5 +1,9 @@
 # Repository for CSE 110 Warmup Exercise
 
+## Finished Task
+
+[Click here to see the finished calendar](./calendar-for-navigation/index.html)
+
 ## Two Groups
 
 ### Task 2:
