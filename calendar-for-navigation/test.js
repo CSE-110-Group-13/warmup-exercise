@@ -207,17 +207,16 @@ inputText.addEventListener('keydown', (event) => {
                 // Create a new <span> element for the text entry
                 let newTextSpan = document.createElement('span');
                 newTextSpan.textContent = textEntry;
-                newTextSpan.style.color = "black"; // Set text color to black
-                newTextSpan.style.display = "block"; // Ensure each entry appears on a new line
+                newTextSpan.style.color = "black";
+                newTextSpan.style.display = "block";
                 newTextSpan.style.backgroundColor = color;
-                newTextSpan.style.opacity = "1"; // Set opacity to 40%
-                newTextSpan.dataset.category = category; // Store the category as a data attribute
+                newTextSpan.dataset.category = category; 
                 
                 // Append the new text entry to the existing <p> element
                 paragraph.appendChild(newTextSpan);
             } else {
                 // If there are existing spans with different categories, append the text directly
-                paragraph.innerHTML += `<span style="color: black; background-color: ${color}; opacity: 0.4; display: block;" data-category="${category}">${textEntry}</span>`;
+                paragraph.innerHTML += `<span style="color: black; background-color: ${color}; display: block;" data-category="${category}">${textEntry}</span>`;
             }
 
             // Clear the input field after adding the text entry
