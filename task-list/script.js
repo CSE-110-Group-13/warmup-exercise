@@ -1,3 +1,4 @@
+
 function formatDate(inputDate) {    //Given a date YYYY-MM-DD -> <Day of the Week>,<Month> <Day>
     const months = [
         "January", "February", "March", "April", "May", "June",
@@ -23,11 +24,13 @@ function formatDate(inputDate) {    //Given a date YYYY-MM-DD -> <Day of the Wee
 
 // Function to initialize the task list
 function initializeTaskList() {
+    const tasksList = document.getElementById("taskList");
+    tasksList.innerHTML = "";
     // Read the tasks data from the json file
     fetch("data.json")
         .then(response => response.json())
         .then(data => {
-            const tasksList = document.getElementById("taskList");
+            
             
             // Iterate over every element
             data.journal.forEach(entry => {
@@ -67,5 +70,30 @@ function initializeTaskList() {
         .catch(error => console.error("Error", error));
 
 }
+
+//----- For adding new tasks -------
+function addTask() {
+    document.getElementById("task-popup").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("task-popup").style.display = "none";
+}
+
+function updateJsonFile(taskName, taskDate) {
+    //TODO: Update json file with new tasks and re-render task list
+}
+
+document.getElementById('taskDate').valueAsDate = new Date(); //Sets default date for adding task to current day
+
+
+document.getElementById("taskForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let taskName = document.getElementById("taskName").value;
+    let taskDate = document.getElementById("taskDate").value;
+    updateJsonFile(taskName, taskDate);
+    closeModal();
+});
+//------------------------------------
 
 initializeTaskList();

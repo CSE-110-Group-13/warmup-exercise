@@ -9,7 +9,22 @@
 	<body>
 		<h1>Task List</h1>
 		<p id="taskList"></p>
-		<button id="add-task">+</button>	<!-- Add functionality to this if theres time -->
+		<button id="add-btn" onclick="addTask()">+</button>	<!-- Add functionality to this if theres time -->
+		
+		<div id="task-popup" class="popup">
+			<div class="popup-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<form id="taskForm">
+					<label for="taskDate">Date: </label>
+					<input type="date" id="taskDate" value="" required><br><br>
+					<label for="taskName">Task Name:</label>
+					<input type="text" id="taskName" placeholder="Enter a task"name="taskName" required><br><br>
+					<button type="submit">Add Task</button>
+				</form>
+			</div>
+		</div>
+		
+
 		<script src="script.js"></script>
 		<noscript>
             JavaScript is not enabled in your browser. Please enable it for the calendar to work.
