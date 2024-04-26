@@ -187,12 +187,48 @@ inputText.addEventListener('keydown', (event) => {
     // Prevents accidental enter presses from causing changes
     if (event.key === "Enter" && document.activeElement === inputText) {
         let paragraph = currentListItem.querySelector('p');
-        paragraph.textContent = event.target.value;
+        let textEntry = event.target.value.trim(); // Trim whitespace
+        
+        if (textEntry !== "") {
+            let category = document.getElementById("categorySelect").value;
+            let legendItem = document.querySelector(`.legend-square.${category}`);
+            let computedStyle = window.getComputedStyle(legendItem);
+            let color = computedStyle.getPropertyValue('background-color');
+            
+            // Check if there are existing spans with different categories
+            let existingSpans = paragraph.querySelectorAll('span');
+            let hasDifferentCategory = Array.from(existingSpans).some(span => {
+                return span.dataset.category !== category;
+            });
+
+            // If there are no existing spans with different categories, create a new one
+            if (!hasDifferentCategory) {
+                // Create a new <span> element for the text entry
+                let newTextSpan = document.createElement('span');
+                newTextSpan.textContent = textEntry;
+                newTextSpan.style.color = "black"; // Set text color to black
+                newTextSpan.style.display = "block"; // Ensure each entry appears on a new line
+                newTextSpan.style.backgroundColor = color;
+                newTextSpan.style.opacity = "0.4"; // Set opacity to 40%
+                newTextSpan.dataset.category = category; // Store the category as a data attribute
+                
+                // Append the new text entry to the existing <p> element
+                paragraph.appendChild(newTextSpan);
+            } else {
+                // If there are existing spans with different categories, append the text directly
+                paragraph.innerHTML += `<span style="color: black; background-color: ${color}; opacity: 0.4; display: block;" data-category="${category}">${textEntry}</span>`;
+            }
+
+            // Clear the input field after adding the text entry
+            event.target.value = "";
+        }
+        
+        // Update the calendar events text
         calendarEvents.textContent = currentListItem.textContent;
     }
-})
+});
 
-// Add event listener to the parent div to handle click events on list items
+
 document.getElementById('grid7x6').addEventListener('click', (event) => {
     // Check if the clicked element is a list item
     if (event.target.tagName === 'LI') {
@@ -203,6 +239,10 @@ document.getElementById('grid7x6').addEventListener('click', (event) => {
         });
         // Add background color to the clicked item
         selectedItem.classList.add('selected');
+        
+        // Update currentListItem to the clicked list item
+        currentListItem = selectedItem;
     }
 });
+
 
