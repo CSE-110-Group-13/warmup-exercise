@@ -63,7 +63,12 @@ function initializeTaskList() {
 
 	// Adding Extra tasks to the date.
 		const addButton = document.createElement("button");
+                
                 addButton.textContent = "Add Task";
+                addButton.style.padding = "5px 10px";
+                addButton.style.backgroundColor = "rgba(45, 46, 81, 0.906)";
+                addButton.style.color = "#fff";
+                addButton.style.borderRadius = "3px"; 
                 addButton.onclick = function() {
                 const newTaskDescription = prompt("Enter New task:");
                     if (newTaskDescription.trim() !== "") {
