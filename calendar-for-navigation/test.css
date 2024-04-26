@@ -267,3 +267,18 @@ ul.hidden li {
     font-size: 1.2em;
     color: #333;
 }
+
+#entry-management {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+#entry-list {
+    list-style: none;
+    padding: 0;
+}
+#entry-list li {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}

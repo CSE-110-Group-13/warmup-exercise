@@ -1,3 +1,4 @@
+
 const monthSelector = document.getElementById('current-month');
 const calendarEvents = document.getElementById('calendarEvents');
 const inputText = document.getElementById('inputText');
@@ -209,7 +210,7 @@ inputText.addEventListener('keydown', (event) => {
                 newTextSpan.style.color = "black"; // Set text color to black
                 newTextSpan.style.display = "block"; // Ensure each entry appears on a new line
                 newTextSpan.style.backgroundColor = color;
-                newTextSpan.style.opacity = "0.4"; // Set opacity to 40%
+                newTextSpan.style.opacity = "1"; // Set opacity to 40%
                 newTextSpan.dataset.category = category; // Store the category as a data attribute
                 
                 // Append the new text entry to the existing <p> element
@@ -245,4 +246,58 @@ document.getElementById('grid7x6').addEventListener('click', (event) => {
     }
 });
 
+//Broken code, check Issues
 
+// 
+// let entries = {
+//     "2024-01-15": ["Meeting at noon", "Lunch with team"],
+//     "2024-01-16": ["Project deadline"]
+// };
+
+// document.getElementById('grid7x6').addEventListener('click', (event) => {
+//     if (event.target.tagName === 'LI' && event.target.textContent.trim() !== "") {
+//         const selectedDay = event.target.textContent.trim();
+//         const selectedMonth = monthSelector.value;
+//         const selectedYear = document.getElementById('current-year').textContent;
+//         const dateKey = `${selectedYear}-${selectedMonth}-${selectedDay}`;
+//         displayEntries(dateKey);
+//     }
+// });
+
+// function displayEntries(dateKey) {
+//     const entryList = document.getElementById('entry-list');
+//     const selectedDateDisplay = document.getElementById('selected-date');
+//     selectedDateDisplay.textContent = dateKey;
+//     entryList.innerHTML = '';  // Clear previous entries
+
+//     if (entries[dateKey]) {
+//         entries[dateKey].forEach(entry => {
+//             const li = document.createElement('li');
+//             li.textContent = entry;
+//             entryList.appendChild(li);
+//         });
+//         document.getElementById('delete-entry').style.display = 'inline';
+//         document.getElementById('edit-entry').style.display = 'inline';
+//     } else {
+//         entryList.innerHTML = '<li>No entries for this date.</li>';
+//         document.getElementById('delete-entry').style.display = 'none';
+//         document.getElementById('edit-entry').style.display = 'none';
+//     }
+// }
+
+// document.getElementById('edit-entry').addEventListener('click', () => {
+//     const currentEntries = entries[document.getElementById('selected-date').textContent];
+//     const newText = prompt("Edit entry:", currentEntries.join(", "));
+//     if (newText !== null) {
+//         entries[document.getElementById('selected-date').textContent] = newText.split(",");
+//         displayEntries(document.getElementById('selected-date').textContent);
+//     }
+// });
+
+// document.getElementById('delete-entry').addEventListener('click', () => {
+//     const confirmDelete = confirm("Are you sure you want to delete all entries for this date?");
+//     if (confirmDelete) {
+//         delete entries[document.getElementById('selected-date').textContent];
+//         displayEntries(document.getElementById('selected-date').textContent);
+//     }
+// });
