@@ -17,9 +17,9 @@ function initializeTaskList() {
                     // Create a new list element for the task
                     const item = document.createElement("li");
                     item.innerHTML = `
-                        <label>
+                        <label class=${task.status === 'complete' ? 'strikethrough' : ''}>
                             ${task.description}
-                            <input type="checkbox" ${task.status === "complete" ? "checked": ""}>
+                            <input type="checkbox" onclick="taskOnClick(event)" ${task.status === "complete" ? "checked": ""}>
                             
                         </label>
                     `;
@@ -32,6 +32,14 @@ function initializeTaskList() {
         // Handle any errors
         .catch(error => console.error("Error", error));
 
+}
+
+function taskOnClick(event) {
+	if (event.target.checked) {
+		event.target.parentElement.classList.add("strikethrough");
+	} else {
+		event.target.parentElement.classList.remove("strikethrough");
+	}
 }
 
 initializeTaskList();
