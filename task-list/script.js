@@ -58,11 +58,34 @@ function initializeTaskList() {
                     //Append the item to the unordered list
                     dailyTask.appendChild(item);
                 });
+		    
                 tasksList.appendChild(dailyTask);
+
+		const addButton = document.createElement("button");
+                addButton.textContent = "Add Task";
+                addButton.onclick = function() {
+                const newTaskDescription = prompt("Enter task description:");
+                    if (newTaskDescription.trim() !== "") {
+                        const newItem = document.createElement("li");
+                        newItem.innerHTML = `
+                        <label>
+                        <input type="checkbox" onclick="taskOnClick(event)">
+                        ${newTaskDescription}
+                        </label>
+                        <hr>
+                        `;
+                    dailyTask.appendChild(newItem);
+                    } else {
+                        alert("Task description cannot be empty!");
+                    }
+                };
+
+            tasksList.appendChild(addButton);
 
             });
         })
 
+	
         // Handle any errors
         .catch(error => console.error("Error", error));
 
