@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 60%;
+    height: 65%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ p {
 }
 
 #inputText{
-    width: 80%;
+    width: 20vw;
     min-height: 3em;
     margin: 2%;
     background-color: white;
@@ -210,4 +210,109 @@ ul.hidden li {
         padding-top: 1em;
         font-size: 0.8em;
     }
+}
+
+/* background color for selected day */
+#grid7x6 ul li.selected{
+    background-color: #5100f354; 
+    color: white; 
+}
+
+
+/* faint background hover effect for list items */
+#grid7x6 ul li:not(.selected):hover {
+    background-color: #f0f0f0; 
+}
+
+#legend-container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    width: calc(50% - 5px);
+}
+
+.legend-square {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+}
+
+.todo { background-color: rgb(120, 169, 255); }
+.recreation { background-color: rgba(112, 223, 112, 0.619); }
+.meeting { background-color: rgb(225, 111, 111); }
+.study { background-color: rgb(247, 202, 117); }
+
+#input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#category-dropdown {
+    margin-right: 10px; 
+}
+
+#categorySelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #333;
+}
+
+#entry-management {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+#entry-list {
+    list-style: none;
+    padding: 0;
+}
+#entry-list li {
+    padding: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+header button {
+    padding: 0;
+    margin: 0;
+    height: 3em;
+    width: 6em;
+}
+
+/* for edit-entry purposes */
+.selectedSpan {
+    background-color: rgb(255, 236, 250) !important;
+}
+
+.active {
+    background-color: rgb(134, 255, 168);
+    color: black;
+}
+
+#selected-date {
+    display: block;
+    overflow-y: auto;
+    max-height: 3.5em;
+}
+
+#selectedDateH3 {
+    margin: 0;
 }
