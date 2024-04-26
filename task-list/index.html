@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@
 			function googleTranslateElementInit() {
 			  const textElements = document.getElementsByTagName('html');
 			  for (let i = 0; i < textElements.length; i++) {
-				new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en', autoDisplay: false}, textElements[i]);
+				new google.translate.TranslateElement({pageLanguage: 'en'},  textElements[i]);
 			  }
 			}
 		</script>
@@ -26,4 +26,9 @@
 		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 	</body>
+
+	<br>
+<footer>
+    <p>Check out our cool calendar <a href="http://127.0.0.1:3000/calendar-for-navigation/index.html"> here</a></p>
+</footer>
 </html>
