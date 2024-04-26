@@ -9,13 +9,6 @@
 </head>
 <body>
 
-<header id="header">
-    <h1>Deck of Events</h1>
-    <button id="delete-entry" class="inactive">Delete Entry</button>
-    <button id="edit-entry" class="inactive">Edit Entry</button>
-    <button id="edit-entry"><a href="./helppage.html" target="_blank" style="color: white">Help Page</a></button>
-</header>
-
 <div id="calendar-container">
     
     <div id="calendar-header">
@@ -90,9 +83,10 @@
     </div>
 
     <div id="entry-management">
-        <h3 id="selectedDateH3">Selected Date: </h3>
-        <span id="selected-date"></span>
+        <h3>Selected Date: <span id="selected-date"></span></h3>
         <ul id="entry-list"></ul>
+        <button id="delete-entry" style="display:none;">Delete Entry</button>
+        <button id="edit-entry" style="display:none;">Edit Entry</button>
     </div>
     
 
@@ -133,7 +127,7 @@
 
 </script>
 
-<script src="./test.js"></script>
+<script src="./test2.js"></script>
 
 <noscript>
     JavaScript is not enabled in your browser. Please enable it for the calendar to work.
