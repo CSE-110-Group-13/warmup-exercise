@@ -2,7 +2,7 @@
 
 ## Finished Task
 
-[Click here to see the finished calendar](./calendar-for-navigation/index.html)  
+[Click here to see the finished calendar](https://cse-110-group-13.github.io/warm-up/calendar-for-navigation/index.html)  
 
 [Click here to see the finished task list](https://cse-110-group-13.github.io/warm-up/task-list/index.html)
 
