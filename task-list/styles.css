@@ -1,0 +1,24 @@
+body {
+    display: grid;
+    grid-template-rows: [row1-start] 50px [row1-end] 30px [third-line] auto [last-line];
+}
+
+h1 {
+    grid-row-start: row1-start;
+    margin:0;
+    margin-top:2vh;
+    grid-row-end: span row1-end;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    text-indent: 2vw;
+}
+#tasklist{
+    grid-row-start: row1-end;
+    grid-row-end: span last-line;
+}
+
+li{
+    font-size: larger;
+    margin: auto;
+    width: 80%
+}
