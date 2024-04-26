@@ -4,6 +4,8 @@
 
 [Click here to see the finished calendar](./calendar-for-navigation/index.html)
 
+Link to website: https://cse-110-group-13.github.io/warm-up/calendar-for-navigation/index.html
+
 ## Two Groups
 
 ### Task 2:
