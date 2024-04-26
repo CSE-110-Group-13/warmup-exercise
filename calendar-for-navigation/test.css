@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 60%;
+    height: 65%;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
@@ -122,7 +122,7 @@ p {
 }
 
 #inputText{
-    width: 80%;
+    width: 20em;
     min-height: 3em;
     margin: 2%;
     background-color: white;
@@ -281,4 +281,38 @@ ul.hidden li {
     padding: 5px;
     margin-bottom: 5px;
     border-bottom: 1px solid #eee;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+header button {
+    padding: 0;
+    margin: 0;
+    height: 3em;
+    width: 6em;
+}
+
+/* for edit-entry purposes */
+.selectedSpan {
+    background-color: rgb(255, 236, 250) !important;
+}
+
+.active {
+    background-color: rgb(134, 255, 168);
+    color: black;
+}
+
+#selected-date {
+    display: block;
+    overflow-y: auto;
+    max-height: 3.5em;
+}
+
+#selectedDateH3 {
+    margin: 0;
 }
