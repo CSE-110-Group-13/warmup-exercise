@@ -9,11 +9,11 @@ body {
 
 h1 {
     margin:-.7vh;
-    padding-left: 43%;
-    padding-right: 43%;
-    background-color: rgb(81, 82, 146);
-    border-radius: .5vw;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    padding-left: 40%;
+    padding-right: 40%;
+    background-color: rgba(45, 46, 81, 0.906);
+    border-radius: .2em;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     color: white;
     text-align:center;
 }
@@ -28,18 +28,20 @@ li{
 
 hr{
     border: none; /* Remove the default border */
-    border-top: 1px solid rgba(81, 82, 146, 0.341); /* Set the top border to create a line */
-    margin: 20px 0;
+    border-top: 1px solid rgba(45, 46, 81, 0.172); /* Set the top border to create a line */
+    margin: .7em 0;
 }
 
-#tasklist{
-    background-color: black;
-    margin: 20em;
+#taskList{
+    background-color: rgba(0, 0, 0, 0.031);
+    padding: 2%;
+    border-radius: .5em;
+    box-shadow: 1px 1px 10px rgba(0.1, 0, 0, 0.1);
     
 }
 
 input[type='checkbox'] {
-    accent-color: rgb(81, 82, 146);
+    accent-color: rgba(45, 46, 81, 0.906);
 }
 
 input[type='checkbox']:hover{
