@@ -1,4 +1,4 @@
-function formatDate(inputDate) {
+function formatDate(inputDate) {    //Given a date YYYY-MM-DD -> <Day of the Week>,<Month> <Day>
     const months = [
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
@@ -17,7 +17,7 @@ function formatDate(inputDate) {
     const dayOfWeek = daysOfWeek[date.getDay()];
     const monthName = months[date.getMonth()];
     const dayNumber = date.getDate();
-// `
+
     return `${dayOfWeek}, ${monthName} ${dayNumber}`;
 }
 
