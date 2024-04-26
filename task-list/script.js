@@ -61,6 +61,7 @@ function initializeTaskList() {
 		    
                 tasksList.appendChild(dailyTask);
 
+	// Elements for Adding Extra Tasks to the unordered List.
 		const addButton = document.createElement("button");
                 addButton.textContent = "Add Task";
                 addButton.onclick = function() {
@@ -68,8 +69,7 @@ function initializeTaskList() {
                     if (newTaskDescription.trim() !== "") {
                         const newItem = document.createElement("li");
                         newItem.innerHTML = `
-                        <label>
-                        <input type="checkbox" onclick="taskOnClick(event)">
+                        <label> <input type="checkbox" onclick="taskOnClick(event)">
                         ${newTaskDescription}
                         </label>
                         <hr>
@@ -84,7 +84,7 @@ function initializeTaskList() {
 
             });
         })
-
+//Functionality for Adding Extra Tasks Ends here. 
 	
         // Handle any errors
         .catch(error => console.error("Error", error));
