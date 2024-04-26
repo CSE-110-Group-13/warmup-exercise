@@ -22,6 +22,7 @@ function initializeTaskList() {
                             <input type="checkbox" ${task.status === "complete" ? "checked": ""}>
                             
                         </label>
+                        <hr>
                     `;
                     //Append the item to the unordered list
                     tasksList.appendChild(item);
