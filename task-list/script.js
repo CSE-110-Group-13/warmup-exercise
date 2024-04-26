@@ -65,10 +65,10 @@ function initializeTaskList() {
 		const addButton = document.createElement("button");
                 
                 addButton.textContent = "Add Task";
-                addButton.style.padding = "5px 10px";
+                addButton.style.padding = "3px 3px";
                 addButton.style.backgroundColor = "rgba(45, 46, 81, 0.906)";
                 addButton.style.color = "#fff";
-                addButton.style.borderRadius = "3px"; 
+                addButton.style.borderRadius = "px"; 
                 addButton.onclick = function() {
                 const newTaskDescription = prompt("Enter New task:");
                     if (newTaskDescription.trim() !== "") {
