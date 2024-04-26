@@ -91,7 +91,7 @@
 
     <div id="entry-management">
         <h3 id="selectedDateH3">Selected Date: </h3>
-        <span id="selected-date"></span>
+        <span id="selected-date"> Pick a day</span>
         <ul id="entry-list"></ul>
     </div>
     
@@ -110,7 +110,7 @@
             <option value="study">Study</option>
         </select>
     </div>
-    <input type="text" id="inputText" placeholder="What's on your mind?">
+    <input type="text" id="inputText" placeholder="What's going to happen?">
 </div>
 
 
@@ -135,6 +135,16 @@
 
 <script src="./test.js"></script>
 
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      const textElements = document.getElementsByTagName('html');
+      for (let i = 0; i < textElements.length; i++) {
+        new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en', autoDisplay: false}, textElements[i]);
+      }
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <noscript>
     JavaScript is not enabled in your browser. Please enable it for the calendar to work.
 </noscript>
