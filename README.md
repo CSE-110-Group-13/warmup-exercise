@@ -24,3 +24,5 @@
 - Alessio
 - Addy
 - Zeyad
+
+[Miro Board](https://miro.com/app/board/uXjVKPmAAAY=/?share_link_id=154167549013)
