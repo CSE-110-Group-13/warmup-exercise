@@ -28,14 +28,21 @@ function initializeTaskList() {
         .then(response => response.json())
         .then(data => {
             const tasksList = document.getElementById("taskList");
+            
             // Iterate over every element
             data.journal.forEach(entry => {
                 const formattedDate = formatDate(entry.date);
+                // Create a new div for each day's tasks
+                const dailyTask = document.createElement("div");
+                dailyTask.className = "task-container";
+                
                 // Create a new list element for the date
                 const date = document.createElement("h3");
                 date.innerHTML = formattedDate;
-                // Append the item to the div
-                tasksList.appendChild(date);       
+                
+                // Append the date to the dailyTask div
+                dailyTask.appendChild(date);
+
                 // Loop through each task
                 entry.tasks.forEach(task => {
                     // Create a new list element for the task
@@ -49,8 +56,10 @@ function initializeTaskList() {
                         <hr>
                     `;
                     //Append the item to the unordered list
-                    tasksList.appendChild(item);
+                    dailyTask.appendChild(item);
                 });
+                tasksList.appendChild(dailyTask);
+
             });
         })
 
