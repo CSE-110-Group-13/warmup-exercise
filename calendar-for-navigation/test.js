@@ -75,7 +75,7 @@ function addGridListElements(currentMonth, firstDay) {
                 // currentListItem is to keep track which day the user pressed
                 listItem.addEventListener('click', (event) => {
                     // calendarEvents.textContent = listItem.textContent;
-                    inputText.value = paragraphItem.textContent;
+                    inputText.value = "";
                     currentListItem = listItem;
                 })
                 // <li>24 </li>

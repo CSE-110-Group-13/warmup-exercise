@@ -254,6 +254,7 @@ ul.hidden li {
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
+    width: 25%;
 }
 
 .legend-item {
@@ -273,6 +274,7 @@ ul.hidden li {
 .recreation { background-color: rgba(112, 223, 112, 0.619); }
 .meeting { background-color: rgb(225, 111, 111); }
 .study { background-color: rgb(247, 202, 117); }
+.none {background-color:rgb(224, 234, 250);}
 
 #input-container {
     display: flex;
@@ -341,4 +343,8 @@ header button {
 
 #selectedDateH3 {
     margin: 0;
+}
+
+#selected-date span:hover {
+    background-color: rgb(216, 233, 233) !important;
 }
