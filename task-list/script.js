@@ -61,11 +61,11 @@ function initializeTaskList() {
 		    
                 tasksList.appendChild(dailyTask);
 
-	// Elements for Adding Extra Tasks to the unordered List.
+	// Adding Extra tasks to the date.
 		const addButton = document.createElement("button");
                 addButton.textContent = "Add Task";
                 addButton.onclick = function() {
-                const newTaskDescription = prompt("Enter task description:");
+                const newTaskDescription = prompt("Enter task:");
                     if (newTaskDescription.trim() !== "") {
                         const newItem = document.createElement("li");
                         newItem.innerHTML = `
