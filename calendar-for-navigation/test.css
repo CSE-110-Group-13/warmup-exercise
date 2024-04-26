@@ -122,7 +122,7 @@ p {
 }
 
 #inputText{
-    width: 20em;
+    width: 20vw;
     min-height: 3em;
     margin: 2%;
     background-color: white;
