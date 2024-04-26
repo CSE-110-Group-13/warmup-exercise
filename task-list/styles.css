@@ -1,24 +1,47 @@
 body {
-    display: grid;
-    grid-template-rows: [row1-start] 50px [row1-end] 30px [third-line] auto [last-line];
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    margin: 1em 1em 0em 1em;
+    flex-direction: column;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
 h1 {
-    grid-row-start: row1-start;
-    margin:0;
-    margin-top:2px;
-    grid-row-end: span row1-end;
-    background-color: rgb(37, 37, 37);
+    margin:-.7vh;
+    padding-left: 43%;
+    padding-right: 43%;
+    background-color: rgb(81, 82, 146);
+    border-radius: .5vw;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     color: white;
-    text-indent: 2vw;
-}
-#tasklist{
-    grid-row-start: row1-end;
-    grid-row-end: span last-line;
+    text-align:center;
 }
 
 li{
-    font-size: larger;
-    margin: auto;
+    font-size: 1.2em;
+    margin-left: 2em;
     width: 65%;
+    list-style-type: none;  /* Gets rid of bullet points */
+    padding-bottom: 1vh;
+}
+
+hr{
+    border: none; /* Remove the default border */
+    border-top: 1px solid rgba(81, 82, 146, 0.341); /* Set the top border to create a line */
+    margin: 20px 0;
+}
+
+#tasklist{
+    background-color: black;
+    margin: 20em;
+    
+}
+
+input[type='checkbox'] {
+    accent-color: rgb(81, 82, 146);
+}
+
+input[type='checkbox']:hover{
+    scale: 115%;
 }

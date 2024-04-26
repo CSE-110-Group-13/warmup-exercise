@@ -1,3 +1,26 @@
+function formatDate(inputDate) {
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    const daysOfWeek = [
+        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+    ];
+
+    const dateParts = inputDate.split("-");
+    const year = parseInt(dateParts[0]);
+    const month = parseInt(dateParts[1]) - 1; // Month indexes are 0-based
+    const day = parseInt(dateParts[2]);
+
+    const date = new Date(year, month, day);
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const monthName = months[date.getMonth()];
+    const dayNumber = date.getDate();
+// `
+    return `${dayOfWeek}, ${monthName} ${dayNumber}`;
+}
+
 // Function to initialize the task list
 function initializeTaskList() {
     // Read the tasks data from the json file
@@ -7,9 +30,10 @@ function initializeTaskList() {
             const tasksList = document.getElementById("taskList");
             // Iterate over every element
             data.journal.forEach(entry => {
+                const formattedDate = formatDate(entry.date);
                 // Create a new list element for the date
-                const date = document.createElement("div");
-                date.innerHTML = `<h3>${entry.date}:</h3>`;
+                const date = document.createElement("h3");
+                date.innerHTML = formattedDate;
                 // Append the item to the div
                 tasksList.appendChild(date);       
                 // Loop through each task
@@ -18,9 +42,9 @@ function initializeTaskList() {
                     const item = document.createElement("li");
                     item.innerHTML = `
                         <label>
-                            ${task.description}
                             <input type="checkbox" ${task.status === "complete" ? "checked": ""}>
-                            
+                            ${task.description}
+
                         </label>
                         <hr>
                     `;
