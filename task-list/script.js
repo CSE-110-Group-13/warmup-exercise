@@ -65,7 +65,7 @@ function initializeTaskList() {
 		const addButton = document.createElement("button");
                 addButton.textContent = "Add Task";
                 addButton.onclick = function() {
-                const newTaskDescription = prompt("Enter task:");
+                const newTaskDescription = prompt("Enter New task:");
                     if (newTaskDescription.trim() !== "") {
                         const newItem = document.createElement("li");
                         newItem.innerHTML = `
