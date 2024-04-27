@@ -60,6 +60,36 @@ function initializeTaskList() {
                 });
 		    
                 tasksList.appendChild(dailyTask);
+
+	// Adding Extra tasks to the date.
+		const addButton = document.createElement("button");
+                
+                addButton.textContent = "Add Task";
+                addButton.style.padding = "3px 3px";
+                addButton.style.backgroundColor = "rgba(45, 46, 81, 0.906)";
+                addButton.style.color = "#fff";
+                addButton.style.borderRadius = "px"; 
+                addButton.onclick = function() {
+                const newTaskDescription = prompt("Enter New task:");
+                    if (newTaskDescription.trim() !== "") {
+                        const newItem = document.createElement("li");
+                        newItem.innerHTML = `
+                        <label> <input type="checkbox" onclick="taskOnClick(event)">
+                        ${newTaskDescription}
+                        </label>
+                        <hr>
+                        `;
+                    dailyTask.appendChild(newItem);
+                    } else {
+                        alert("Task description cannot be empty!");
+                    }
+                };
+
+            tasksList.appendChild(addButton);
+
+            });
+        })
+//Functionality for Adding Extra Tasks Ends here. 
 	
         // Handle any errors
         .catch(error => console.error("Error", error));
