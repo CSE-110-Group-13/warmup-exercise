@@ -60,6 +60,12 @@ function initializeTaskList() {
                 });
 		    
                 tasksList.appendChild(dailyTask);
+
+
+
+            });
+        })
+
 	
         // Handle any errors
         .catch(error => console.error("Error", error));
